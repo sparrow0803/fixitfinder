@@ -1,0 +1,32 @@
+RewriteEngine On
+
+RewriteRule ^(phpmailer|vendor)/.*$ - [F,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L]
+
+<FilesMatch "default.php">
+Order Allow,Deny 
+Deny from all 
+</FilesMatch>
+
+<FilesMatch "composer.json">
+Order Allow,Deny 
+Deny from all 
+</FilesMatch>
+
+<FilesMatch "composer.lock">
+Order Allow,Deny 
+Deny from all 
+</FilesMatch>
+
+<FilesMatch "dbcon.php">
+Order Allow,Deny 
+Deny from all 
+</FilesMatch>
+
+<FilesMatch "fixitfinder-b2329-firebase-adminsdk-g8tpg-b8a0084451.json">
+Order Allow,Deny 
+Deny from all 
+</FilesMatch>
